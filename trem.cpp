@@ -48,7 +48,7 @@ void Trem::run()
                 y+=10;
             }
             else if (x > 60 && y == 310){
-                if( x == 310)
+                if(x == 310)
                     sem_post(&site1);
                 if(x == 190)
                     sem_post(&site3);
@@ -128,7 +128,7 @@ void Trem::run()
             emit updateGUI(ID, x,y);    //Emite um sinal
             break;
         case 4: //Trem 4
-            if (y == 310 && x < 480)
+            if (y == 70 && x < 480)
             {
                 if(x == 310)
                     sem_wait(&site4);
@@ -141,14 +141,14 @@ void Trem::run()
 
                 x+=10;
             }
-            else if (x == 480 && y < 430)
+            else if (x == 480 && y < 190)
             {
-                if(y == 330)
+                if(y == 190)
                     sem_post(&site4);
 
                 y+=10;
             }
-            else if (x > 210 && y == 430)
+            else if (x > 210 && y == 190)
             {
                 if(x == 480)
                     sem_post(&site7);
@@ -157,7 +157,7 @@ void Trem::run()
             }
             else
             {
-                if(y == 330)
+                if(y == 90)
                     sem_wait(&site3);
 
                 y-=10;
@@ -165,7 +165,7 @@ void Trem::run()
             emit updateGUI(ID, x,y);    //Emite um sinal
             break;
         case 5: //Trem 5
-            if (y == 310 && x < 750)
+            if (y == 70 && x < 750)
             {
                 if(x == 500)
                     sem_post(&site7);
@@ -178,14 +178,14 @@ void Trem::run()
 
                 x+=10;
             }
-            else if (x == 750 && y < 430)
+            else if (x == 750 && y < 190)
             {
                 if(y == 410)
                     sem_post(&site6);
 
                 y+=10;
             }
-            else if (x > 480 && y == 430)
+            else if (x > 480 && y == 190)
             {
                 if(x == 500)
                 {
