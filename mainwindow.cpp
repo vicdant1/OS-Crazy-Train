@@ -7,9 +7,12 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //Cria o trem com seu (ID, posição X, posição Y)
-    trem1 = new Trem(1,60,30);
-    trem2 = new Trem(2,330,30);
+    //Cria o trem com seu (ID, posição X, posição Y, velocidade Z)
+    trem1 = new Trem(1,60,20);
+    trem2 = new Trem(2,330,20);
+    trem3 = new Trem(3,600,20);
+    trem4 = new Trem(4,210,140);
+    trem5 = new Trem(5,480,140);
 
     /*
      * Conecta o sinal UPDATEGUI à função UPDATEINTERFACE.
@@ -20,19 +23,34 @@ MainWindow::MainWindow(QWidget *parent) :
      */
     connect(trem1,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
     connect(trem2,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
+    connect(trem3,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
+    connect(trem4,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
+    connect(trem5,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
 
-
-
+    trem1->start();
+    trem2->start();
+    trem3->start();
+    trem4->start();
+    trem5->start();
 }
 
 //Função que será executada quando o sinal UPDATEGUI for emitido
 void MainWindow::updateInterface(int id, int x, int y){
     switch(id){
     case 1: //Atualiza a posição do objeto da tela (quadrado) que representa o trem1
-        ui->label_trem1->setGeometry(x,y,21,17);
+        ui->label_trem1->setGeometry(x,y,20,20);
         break;
     case 2: //Atualiza a posição do objeto da tela (quadrado) que representa o trem2
-        ui->label_trem2->setGeometry(x,y,21,17);
+        ui->label_trem2->setGeometry(x,y,20,20);
+        break;
+    case 3: //Atualiza a posição do objeto da tela (quadrado) que representa o trem3
+        ui->label_trem3->setGeometry(x,y,20,20);
+        break;
+    case 4: //Atualiza a posição do objeto da tela (quadrado) que representa o trem4
+        ui->label_trem4->setGeometry(x,y,20,20);
+        break;
+    case 5: //Atualiza a posição do objeto da tela (quadrado) que representa o trem5
+        ui->label_trem5->setGeometry(x,y,20,20);
         break;
     default:
         break;
@@ -44,20 +62,27 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-/*
- * Ao clicar, trens começam execução
- */
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_Speeder1_valueChanged(int value)
 {
-    trem1->start();
-    trem2->start();
+    trem1->setTrainVelocity(200-value);
 }
 
-/*
- * Ao clicar, trens param execução
- */
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::on_Speeder2_valueChanged(int value)
 {
-    trem1->terminate();
-    trem2->terminate();
+    trem2->setTrainVelocity(200-value);
+}
+
+void MainWindow::on_Speeder3_valueChanged(int value)
+{
+    trem3->setTrainVelocity(200-value);
+}
+
+void MainWindow::on_Speeder4_valueChanged(int value)
+{
+    trem4->setTrainVelocity(200-value);
+}
+
+void MainWindow::on_Speeder5_valueChanged(int value)
+{
+    trem5->setTrainVelocity(200-value);
 }
