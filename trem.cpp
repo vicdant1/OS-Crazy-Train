@@ -1,7 +1,7 @@
 #include "trem.h"
 #include <QtCore>
 
-sem_t site1,site2,site3,site4,site5,site6,site7;
+sem_t site1,site2,site3,site4,site5,site6,site7,siteD;
 //Construtor
 Trem::Trem(int ID, int x, int y)
 {
@@ -17,6 +17,8 @@ Trem::Trem(int ID, int x, int y)
     sem_init(&site5,0,1);
     sem_init(&site6,0,1);
     sem_init(&site7,0,0);
+
+    sem_init(&siteD,0,0);
 }
 
 void Trem::setTrainVelocity(int value)
@@ -104,6 +106,9 @@ void Trem::run()
                 if(x == 600)
                     sem_post(&site2);
 
+                if(x == 770)
+                    sem_post(&siteD);
+
                 x+=10;
             }
             else if (x == 870 && y < 310)
@@ -114,7 +119,10 @@ void Trem::run()
                     sem_wait(&site6);
 
                 if(x == 620)
+                {
                     sem_wait(&site2);
+                    sem_wait(&siteD);
+                }
 
                 x-=10;
             }
@@ -162,14 +170,18 @@ void Trem::run()
             }
             else if (x == 750 && y < 190)
             {
+                if(y == 170)
+                    sem_wait(&siteD);
+
                 y+=10;
             }
             else if (x > 480 && y == 190)
             {
+                if(x == 580)
+                    sem_post(&siteD);
+
                 if(x == 500)
-                {
                     sem_wait(&site7);
-                }
 
                 x-=10;
             }
@@ -192,4 +204,5 @@ void Trem::run()
     sem_destroy(&site5);
     sem_destroy(&site6);
     sem_destroy(&site7);
+    sem_destroy(&siteD);
 }
