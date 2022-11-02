@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>940</width>
-    <height>420</height>
+    <width>1001</width>
+    <height>652</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>20</y>
+      <y>190</y>
       <width>20</width>
       <height>20</height>
      </rect>
@@ -34,7 +34,7 @@
     <property name="geometry">
      <rect>
       <x>80</x>
-      <y>20</y>
+      <y>190</y>
       <width>251</width>
       <height>20</height>
      </rect>
@@ -465,7 +465,7 @@
     <property name="geometry">
      <rect>
       <x>80</x>
-      <y>140</y>
+      <y>310</y>
       <width>271</width>
       <height>20</height>
      </rect>
@@ -481,7 +481,7 @@
     <property name="geometry">
      <rect>
       <x>330</x>
-      <y>19</y>
+      <y>189</y>
       <width>20</width>
       <height>121</height>
      </rect>
@@ -497,7 +497,7 @@
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>20</y>
+      <y>190</y>
       <width>20</width>
       <height>140</height>
      </rect>
@@ -513,7 +513,7 @@
     <property name="geometry">
      <rect>
       <x>600</x>
-      <y>20</y>
+      <y>190</y>
       <width>20</width>
       <height>120</height>
      </rect>
@@ -529,7 +529,7 @@
     <property name="geometry">
      <rect>
       <x>350</x>
-      <y>20</y>
+      <y>190</y>
       <width>250</width>
       <height>20</height>
      </rect>
@@ -545,7 +545,7 @@
     <property name="geometry">
      <rect>
       <x>350</x>
-      <y>140</y>
+      <y>310</y>
       <width>131</width>
       <height>20</height>
      </rect>
@@ -561,7 +561,7 @@
     <property name="geometry">
      <rect>
       <x>330</x>
-      <y>20</y>
+      <y>190</y>
       <width>20</width>
       <height>20</height>
      </rect>
@@ -577,7 +577,7 @@
     <property name="geometry">
      <rect>
       <x>600</x>
-      <y>20</y>
+      <y>190</y>
       <width>20</width>
       <height>20</height>
      </rect>
@@ -593,7 +593,7 @@
     <property name="geometry">
      <rect>
       <x>620</x>
-      <y>20</y>
+      <y>190</y>
       <width>250</width>
       <height>20</height>
      </rect>
@@ -609,7 +609,7 @@
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>260</y>
+      <y>430</y>
       <width>250</width>
       <height>20</height>
      </rect>
@@ -625,7 +625,7 @@
     <property name="geometry">
      <rect>
       <x>480</x>
-      <y>140</y>
+      <y>310</y>
       <width>20</width>
       <height>20</height>
      </rect>
@@ -641,7 +641,7 @@
     <property name="geometry">
      <rect>
       <x>210</x>
-      <y>140</y>
+      <y>310</y>
       <width>20</width>
       <height>20</height>
      </rect>
@@ -663,7 +663,7 @@
     <property name="geometry">
      <rect>
       <x>500</x>
-      <y>260</y>
+      <y>430</y>
       <width>250</width>
       <height>20</height>
      </rect>
@@ -679,7 +679,7 @@
     <property name="geometry">
      <rect>
       <x>750</x>
-      <y>160</y>
+      <y>330</y>
       <width>20</width>
       <height>121</height>
      </rect>
@@ -694,8 +694,8 @@
    <widget class="QSlider" name="Speeder1">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>190</y>
+      <x>820</x>
+      <y>480</y>
       <width>160</width>
       <height>16</height>
      </rect>
@@ -719,8 +719,8 @@
    <widget class="QSlider" name="Speeder2">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>210</y>
+      <x>820</x>
+      <y>500</y>
       <width>160</width>
       <height>16</height>
      </rect>
@@ -738,8 +738,8 @@
    <widget class="QSlider" name="Speeder3">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>230</y>
+      <x>820</x>
+      <y>520</y>
       <width>160</width>
       <height>16</height>
      </rect>
@@ -757,8 +757,8 @@
    <widget class="QSlider" name="Speeder4">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>250</y>
+      <x>820</x>
+      <y>540</y>
       <width>160</width>
       <height>16</height>
      </rect>
@@ -776,8 +776,8 @@
    <widget class="QSlider" name="Speeder5">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>270</y>
+      <x>820</x>
+      <y>560</y>
       <width>160</width>
       <height>16</height>
      </rect>
@@ -796,7 +796,7 @@
     <property name="geometry">
      <rect>
       <x>620</x>
-      <y>140</y>
+      <y>310</y>
       <width>250</width>
       <height>20</height>
      </rect>
@@ -812,7 +812,7 @@
     <property name="geometry">
      <rect>
       <x>870</x>
-      <y>20</y>
+      <y>190</y>
       <width>20</width>
       <height>140</height>
      </rect>
@@ -828,7 +828,7 @@
     <property name="geometry">
      <rect>
       <x>480</x>
-      <y>140</y>
+      <y>310</y>
       <width>20</width>
       <height>141</height>
      </rect>
@@ -844,7 +844,7 @@
     <property name="geometry">
      <rect>
       <x>500</x>
-      <y>140</y>
+      <y>310</y>
       <width>121</width>
       <height>20</height>
      </rect>
@@ -860,7 +860,7 @@
     <property name="geometry">
      <rect>
       <x>210</x>
-      <y>160</y>
+      <y>330</y>
       <width>20</width>
       <height>121</height>
      </rect>
@@ -904,7 +904,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>940</width>
+     <width>1001</width>
      <height>22</height>
     </rect>
    </property>

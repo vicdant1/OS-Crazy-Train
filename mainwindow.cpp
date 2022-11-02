@@ -8,11 +8,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     //Cria o trem com seu (ID, posição X, posição Y, velocidade Z)
-    trem1 = new Trem(1,60,20);
-    trem2 = new Trem(2,330,20);
-    trem3 = new Trem(3,600,20);
-    trem4 = new Trem(4,210,140);
-    trem5 = new Trem(5,480,140);
+    trem1 = new Trem(1,60,190);
+    trem2 = new Trem(2,330,190);
+    trem3 = new Trem(3,600,190);
+    trem4 = new Trem(4,210,310);
+    trem5 = new Trem(5,480,310);
 
     /*
      * Conecta o sinal UPDATEGUI à função UPDATEINTERFACE.

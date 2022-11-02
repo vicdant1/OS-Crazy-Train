@@ -33,21 +33,21 @@ void Trem::run()
         switch(ID)
         {
         case 1:     //Trem 1
-            if (y == 20 && x < 330)
+            if (y == 190 && x < 330)
             {
                 if (x == 310)
                     sem_wait(&site1);
 
                 x+=10;
             }
-            else if (x == 330 && y < 140)
+            else if (x == 330 && y < 310)
             {
-                if(y == 120)
+                if(y == 290)
                     sem_wait(&site3);
 
                 y+=10;
             }
-            else if (x > 60 && y == 140){
+            else if (x > 60 && y == 310){
                 if( x == 310)
                     sem_post(&site1);
                 if(x == 190)
@@ -61,7 +61,7 @@ void Trem::run()
             emit updateGUI(ID, x,y);    //Emite um sinal
             break;
         case 2: //Trem 2
-            if (y == 20 && x < 600)
+            if (y == 190 && x < 600)
             {
                 if(x == 350)
                     sem_post(&site1);
@@ -73,9 +73,9 @@ void Trem::run()
                 }
                 x+=10;
             }
-            else if (x == 600 && y < 140)
+            else if (x == 600 && y < 310)
                 y+=10;
-            else if (x > 330 && y == 140)
+            else if (x > 330 && y == 310)
             {
                 if(x == 600)
                     sem_post(&site2);
@@ -91,7 +91,7 @@ void Trem::run()
             }
             else
             {
-                if( y == 120 )
+                if(y == 290)
                     sem_post(&site4);
 
                 y-=10;
@@ -99,16 +99,16 @@ void Trem::run()
             emit updateGUI(ID, x,y);    //Emite um sinal
             break;
         case 3: //Trem 3
-            if (y == 20 && x < 870)
+            if (y == 190 && x < 870)
             {
                 if(x == 600)
                     sem_post(&site2);
 
                 x+=10;
             }
-            else if (x == 870 && y < 140)
+            else if (x == 870 && y < 310)
                 y+=10;
-            else if (x > 600 && y == 140)
+            else if (x > 600 && y == 310)
             {
                 if(x == 770)
                     sem_wait(&site6);
@@ -120,7 +120,7 @@ void Trem::run()
             }
             else
             {
-                if(y == 120)
+                if(y == 290)
                     sem_post(&site6);
 
                 y-=10;
@@ -128,7 +128,7 @@ void Trem::run()
             emit updateGUI(ID, x,y);    //Emite um sinal
             break;
         case 4: //Trem 4
-            if (y == 140 && x < 480)
+            if (y == 310 && x < 480)
             {
                 if(x == 310)
                     sem_wait(&site4);
@@ -141,23 +141,23 @@ void Trem::run()
 
                 x+=10;
             }
-            else if (x == 480 && y < 260)
+            else if (x == 480 && y < 430)
             {
-                if(y == 160)
+                if(y == 330)
                     sem_post(&site4);
 
                 y+=10;
             }
-            else if (x > 210 && y == 260)
+            else if (x > 210 && y == 430)
             {
-                if( x == 480)
+                if(x == 480)
                     sem_post(&site7);
 
                 x-=10;
             }
             else
             {
-                if(y == 160)
+                if(y == 330)
                     sem_wait(&site3);
 
                 y-=10;
@@ -165,7 +165,7 @@ void Trem::run()
             emit updateGUI(ID, x,y);    //Emite um sinal
             break;
         case 5: //Trem 5
-            if (y == 140 && x < 750)
+            if (y == 310 && x < 750)
             {
                 if(x == 500)
                     sem_post(&site7);
@@ -178,14 +178,14 @@ void Trem::run()
 
                 x+=10;
             }
-            else if (x == 750 && y < 260)
+            else if (x == 750 && y < 430)
             {
-                if(y == 240)
+                if(y == 410)
                     sem_post(&site6);
 
                 y+=10;
             }
-            else if (x > 480 && y == 260)
+            else if (x > 480 && y == 430)
             {
                 if(x == 500)
                 {
