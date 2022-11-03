@@ -1,7 +1,6 @@
 #ifndef TREM_H
 #define TREM_H
 
-#include "semaphore.h"
 #include <QThread>
 
 /*
@@ -16,7 +15,7 @@ class Trem: public QThread{
 public:
     Trem(int,int,int);  //construtor
     void run();         //função a ser executada pela thread
-    void setTrainVelocity(int);
+
 
 //Cria um sinal
 signals:
