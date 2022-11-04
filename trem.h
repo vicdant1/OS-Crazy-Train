@@ -2,6 +2,7 @@
 #define TREM_H
 
 #include <QThread>
+#include "semaphore.h"
 
 /*
  * Classe Trem herda QThread
@@ -15,6 +16,7 @@ class Trem: public QThread{
 public:
     Trem(int,int,int);  //construtor
     void run();         //função a ser executada pela thread
+    void setSpeed(int);
 
 
 //Cria um sinal

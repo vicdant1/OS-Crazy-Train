@@ -8,8 +8,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     //Cria o trem com seu (ID, posição X, posição Y)
-    trem1 = new Trem(1,60,30);
-    trem2 = new Trem(2,330,30);
+    trem1 = new Trem(1,160,60);
+    trem2 = new Trem(2,430,60);
+    trem3 = new Trem(3,20,180);
+    trem4 = new Trem(4,290,180);
+    trem5 = new Trem(5,570,180);
+
 
     /*
      * Conecta o sinal UPDATEGUI à função UPDATEINTERFACE.
@@ -20,9 +24,15 @@ MainWindow::MainWindow(QWidget *parent) :
      */
     connect(trem1,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
     connect(trem2,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
+    connect(trem3,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
+    connect(trem4,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
+    connect(trem5,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
 
-
-
+    trem1->start();
+    trem2->start();
+    trem3->start();
+    trem4->start();
+    trem5->start();
 }
 
 //Função que será executada quando o sinal UPDATEGUI for emitido
@@ -34,6 +44,15 @@ void MainWindow::updateInterface(int id, int x, int y){
     case 2: //Atualiza a posição do objeto da tela (quadrado) que representa o trem2
         ui->label_trem2->setGeometry(x,y,21,17);
         break;
+    case 3: //Atualiza a posição do objeto da tela (quadrado) que representa o trem3
+        ui->label_trem3->setGeometry(x,y,21,17);
+        break;
+    case 4: //Atualiza a posição do objeto da tela (quadrado) que representa o trem4
+        ui->label_trem4->setGeometry(x,y,21,17);
+        break;
+    case 5: //Atualiza a posição do objeto da tela (quadrado) que representa o trem5
+        ui->label_trem5->setGeometry(x,y,21,17);
+        break;
     default:
         break;
     }
@@ -44,20 +63,27 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-/*
- * Ao clicar, trens começam execução
- */
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_horizontalSlider_valueChanged(int value)
 {
-    trem1->start();
-    trem2->start();
+    trem1->setSpeed(200 - value);
 }
 
-/*
- * Ao clicar, trens param execução
- */
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::on_horizontalSlider_2_valueChanged(int value)
 {
-    trem1->terminate();
-    trem2->terminate();
+    trem2->setSpeed(200 - value);
+}
+
+void MainWindow::on_horizontalSlider_3_valueChanged(int value)
+{
+    trem3->setSpeed(200 - value);
+}
+
+void MainWindow::on_horizontalSlider_4_valueChanged(int value)
+{
+    trem4->setSpeed(200 - value);
+}
+
+void MainWindow::on_horizontalSlider_5_valueChanged(int value)
+{
+    trem5->setSpeed(200 - value);
 }
