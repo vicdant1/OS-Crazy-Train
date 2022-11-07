@@ -12,9 +12,9 @@ Trem::Trem(int ID, int x, int y){
     velocidade = 200;
 
     sem_init(&sem0, 0, 0);
-    sem_init(&sem1, 0, 0);
+    sem_init(&sem1, 0, 1);
     sem_init(&sem2, 0, 0);
-    sem_init(&sem3, 0, 0);
+    sem_init(&sem3, 0, 1);
     sem_init(&sem4, 0, 0);
     sem_init(&sem5, 0, 0);
     sem_init(&sem6, 0, 0);
@@ -37,7 +37,9 @@ void Trem::run(){
             if(y == 60)
             {
                 if(x == 410)
+                {
                     sem_wait(&sem0);
+                }
                 if(x < 430)
                     x += 10;
             }
@@ -45,8 +47,9 @@ void Trem::run(){
             if(y < 180)
             {
                 if(x == 430 && y == 160)
+                {
                     sem_wait(&sem2);
-
+                }
                 if(x == 430)
                     y+= 10;
             }
@@ -54,18 +57,25 @@ void Trem::run(){
             if(y == 180)
             {
                 if(x == 260)
+                {
                     sem_post(&sem2);
-
+                }
                 if(x > 160)
                     x -= 10;
+
+                if(x == 310)
+                    sem_wait(&sem1);
 
                 if(x == 400)
                     sem_post(&sem0);
             }
 
             if(x == 160 && y > 60)
+            {
                 y-=10;
-
+                if(y == 160)
+                    sem_post(&sem1);
+            }
             emit updateGUI(ID, x,y);    //Emite um sinal
             break;
         case 2: //Trem 2
@@ -84,6 +94,9 @@ void Trem::run(){
                 if(y == 160 && x == 700)
                     sem_wait(&sem4);
 
+                if(y == 160 && x == 430)
+                    sem_post(&sem3);
+
                 if(x == 700)
                     y += 10;
             }
@@ -93,11 +106,18 @@ void Trem::run(){
                 if(x == 540)
                     sem_post(&sem4);
 
+                if(x == 590){
+                    sem_wait(&sem0);
+                    sem_wait(&sem3);
+                }
+
                 if(x > 430)
                     x -= 10;
 
                 if(x == 450)
-                    sem_wait(&sem0);
+                {
+                    //sem_wait(&sem0);
+                }
             }
 
             if(x == 430 && y > 60)
@@ -113,12 +133,17 @@ void Trem::run(){
                 if(x == 270)
                     sem_wait(&sem5);
 
+                if(x == 130)
+                    sem_wait(&sem1);
+
                 if(x < 290)
                     x += 10;
             }
 
             if(y < 300)
             {
+                if(x == 290 && y == 200)
+                    sem_post(&sem1);
                 if(x == 290)
                     y += 10;
             }
@@ -143,11 +168,17 @@ void Trem::run(){
             {
                 if(x == 450)
                     sem_post(&sem2);
+
+                if(x == 400)
+                    sem_wait(&sem3);
+
                 if(x == 310)
                     sem_post(&sem5);
 
-                if(x == 550)
+                if(x == 550){
                     sem_wait(&sem6);
+                }
+
 
                 if(x < 570)
                     x += 10;
@@ -155,6 +186,9 @@ void Trem::run(){
 
             if(y < 300)
             {
+                if(x == 570 && y == 200)
+                    sem_post(&sem3);
+
                 if(x == 570)
                     y += 10;
             }
@@ -162,7 +196,11 @@ void Trem::run(){
             if(y == 300)
             {
                 if(x == 310)
+                {
+                    sem_wait(&sem2);
                     sem_wait(&sem5);
+                }
+
                 if(x == 540)
                     sem_post(&sem6);
 
@@ -172,9 +210,6 @@ void Trem::run(){
 
             if(x == 290 && y > 180)
             {
-                if(y == 200)
-                    sem_wait(&sem2);
-
                 y -= 10;
             }
 
@@ -204,8 +239,8 @@ void Trem::run(){
             {
                 if(x == 590)
                 {
-                    sem_wait(&sem6);
                     sem_wait(&sem4);
+                    sem_wait(&sem6);
                 }
 
                 if(x > 570)
